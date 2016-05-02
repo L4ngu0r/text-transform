@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<report>
+    <objetReferenceList>
+        <color>R</color>
+        <price>45.12</price>
+        <reference>1460100040</reference>
+        <size>27</size>
+    </objetReferenceList>
+    <objetReferenceList>
+        <color>G</color>
+        <price>12.0</price>
+        <reference>1460900848</reference>
+        <size>145</size>
+    </objetReferenceList>
+    <objetReferenceList>
+        <color>G</color>
+        <price>5.56</price>
+        <reference>1462100044</reference>
+        <size>19</size>
+    </objetReferenceList>
+    <objetReferenceList>
+        <color>B</color>
+        <price>105.23</price>
+        <reference>1462100403</reference>
+        <size>97</size>
+    </objetReferenceList>
+    <errorList>
+        <line>5</line>
+        <message>Incorrect value for color</message>
+        <value>1462100403;A;100.1;9</value>
+    </errorList>
+</report>

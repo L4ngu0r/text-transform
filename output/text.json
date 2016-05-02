@@ -1,0 +1,29 @@
+{
+  "inputFile" : null,
+  "objetReferenceList" : [ {
+    "reference" : 1460100040,
+    "color" : "R",
+    "price" : 45.12,
+    "size" : 27
+  }, {
+    "reference" : 1460900848,
+    "color" : "G",
+    "price" : 12.0,
+    "size" : 145
+  }, {
+    "reference" : 1462100044,
+    "color" : "G",
+    "price" : 5.56,
+    "size" : 19
+  }, {
+    "reference" : 1462100403,
+    "color" : "B",
+    "price" : 105.23,
+    "size" : 97
+  } ],
+  "errorList" : [ {
+    "line" : 5,
+    "message" : "Incorrect value for color",
+    "value" : "A"
+  } ]
+}
