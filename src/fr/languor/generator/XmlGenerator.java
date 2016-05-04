@@ -24,7 +24,6 @@ public class XmlGenerator extends Generator {
             JAXBContext context = JAXBContext.newInstance(Report.class);
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-            System.out.println("file : " + this.outputPath);
             marshaller.marshal(this.report, new File(this.outputPath));
         } catch (JAXBException e) {
             e.printStackTrace();

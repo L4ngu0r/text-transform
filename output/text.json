@@ -1,5 +1,5 @@
 {
-  "inputFile" : null,
+  "inputFile" : "text.txt",
   "objetReferenceList" : [ {
     "reference" : 1460100040,
     "color" : "R",
@@ -24,6 +24,6 @@
   "errorList" : [ {
     "line" : 5,
     "message" : "Incorrect value for color",
-    "value" : "A"
+    "value" : "1462100403;A;100.1;9"
   } ]
 }
