@@ -3,7 +3,7 @@ package fr.languor.generator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import fr.languor.xml.Report;
+import fr.languor.model.Report;
 
 import java.io.File;
 import java.io.IOException;

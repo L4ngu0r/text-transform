@@ -1,6 +1,6 @@
 package fr.languor.generator;
 
-import fr.languor.xml.Report;
+import fr.languor.model.Report;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -24,8 +24,11 @@ public class XmlGenerator extends Generator {
             JAXBContext context = JAXBContext.newInstance(Report.class);
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+            System.out.println("file : " + this.outputPath);
             marshaller.marshal(this.report, new File(this.outputPath));
         } catch (JAXBException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

@@ -1,7 +1,4 @@
-package fr.languor.xml;
-
-import fr.languor.model.Error;
-import fr.languor.model.ObjetReference;
+package fr.languor.model;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

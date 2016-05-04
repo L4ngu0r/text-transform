@@ -5,7 +5,7 @@ import fr.languor.generator.XmlGenerator;
 import fr.languor.model.Format;
 import fr.languor.model.ObjetReference;
 import fr.languor.valid.Validator;
-import fr.languor.xml.Report;
+import fr.languor.model.Report;
 import fr.languor.model.Error;
 
 import java.io.File;
@@ -17,44 +17,45 @@ public class Main {
     public static void main(String[] args) {
 
         String inputFile = null;
-        String format = null;
         String outputFile = null;
+        int format = 0;
+
+        // TODO handle error on arguments
+        if(args.length == 0){
+            System.out.println("[INFO] No arguments passed ! Using default value");
+        }
 
         for (int i = 0; i < args.length; i++) {
             String arg = args[i];
             System.out.println("Argument " + i + " : " + arg);
             switch (i) {
                 case 0:
-                    //first argument is path to input text file
+                    // first argument is path to input text file
                     inputFile = args[i];
                     break;
                 case 1:
-                    //second argument is format : xml or json
-                    format = args[i];
+                    // second argument is format : xml or json
+                    format = Integer.parseInt(args[i]);
                     break;
                 case 2:
-                    //third argument is path to output file
+                    // third argument is path to output file
                     outputFile = args[i];
                     break;
-                default:
-
             }
         }
 
-        //handle default cases
+        // TODO handle default cases
         if (inputFile == null) {
             inputFile = "./entry/text.txt";
-        }
-        if (format == null) {
-            format = "XML";
         }
         if (outputFile == null) {
             outputFile = "./output/text.xml";
         }
 
         File file = new File(inputFile);
-        Scanner input = null;
+        Scanner input;
         Report ref = new Report();
+        ref.setInputFile(file.getName());
         try {
             input = new Scanner(file);
             int lineIndex = 1;
@@ -62,12 +63,11 @@ public class Main {
                 String nextToken = input.next();
                 String[] splitedLine = nextToken.split(";");
 
-                ObjetReference o = new ObjetReference();
-
                 Boolean validLength = Validator.checkReferenceLenght(splitedLine[0]);
                 Boolean validColor = Validator.checkColorValues(splitedLine[1]);
 
                 if (validLength && validColor) {
+                    ObjetReference o = new ObjetReference();
                     o.setReference(Integer.parseInt(splitedLine[0]));
                     o.setColor(splitedLine[1]);
                     o.setPrice(Float.parseFloat(splitedLine[2]));
@@ -77,7 +77,7 @@ public class Main {
                 } else if (!validLength && validColor) {
                     Error e = new Error(lineIndex, "Reference is wrong", nextToken);
                     ref.getErrorList().add(e);
-                } else if (validLength && !validColor) {
+                } else {
                     Error e = new Error(lineIndex, "Incorrect value for color", nextToken);
                     ref.getErrorList().add(e);
                 }
@@ -90,9 +90,9 @@ public class Main {
             e.printStackTrace();
         }
 
-        //generate JSON
+        // generate JSON
         if (format == Format.JSON_TYPE) {
-            JsonGenerator jsonGenerator = new JsonGenerator(ref, "./output/text.json");
+            JsonGenerator jsonGenerator = new JsonGenerator(ref, outputFile);
             try {
                 jsonGenerator.run();
             } catch (Exception e) {
@@ -100,7 +100,7 @@ public class Main {
             }
         }
 
-        //generate XML
+        // generate XML
         if (format == Format.XML_TYPE) {
             XmlGenerator xmlGenerator = new XmlGenerator(ref, outputFile);
             try {

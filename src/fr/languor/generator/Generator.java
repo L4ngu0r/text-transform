@@ -1,6 +1,6 @@
 package fr.languor.generator;
 
-import fr.languor.xml.Report;
+import fr.languor.model.Report;
 
 public class Generator {
 

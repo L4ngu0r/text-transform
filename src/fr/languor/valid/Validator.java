@@ -11,18 +11,14 @@ public class Validator {
         if (color.length() == 0 || color.length() > 1) {
             return false;
         } else {
-            ArrayList<Boolean> bools = new ArrayList();
-            for (int i = 0; i < COLOR_VALUES.length; i++) {
-                String oneValue = COLOR_VALUES[i];
-                if (oneValue.equals(color)) {
+            ArrayList<Boolean> bools = new ArrayList<Boolean>();
+            for (String refColor : COLOR_VALUES) {
+                if (refColor.equals(color)) {
                     bools.add(true);
                 }
             }
 
-            if (bools.size() != 1) {
-                return false;
-            }
-            return true;
+            return bools.size() == 1;
         }
     }
 
