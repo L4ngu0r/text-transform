@@ -22,7 +22,7 @@ public class Validator {
         }
     }
 
-    public static Boolean checkReferenceLenght(String refToCheck) {
+    public static Boolean checkReferenceLength(String refToCheck) {
         return refToCheck.length() != 0 || refToCheck.length() == REFERENCE_LENGTH;
     }
 }

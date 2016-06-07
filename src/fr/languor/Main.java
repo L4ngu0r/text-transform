@@ -63,7 +63,7 @@ public class Main {
                 String nextToken = input.next();
                 String[] splitedLine = nextToken.split(";");
 
-                Boolean validLength = Validator.checkReferenceLenght(splitedLine[0]);
+                Boolean validLength = Validator.checkReferenceLength(splitedLine[0]);
                 Boolean validColor = Validator.checkColorValues(splitedLine[1]);
 
                 if (validLength && validColor) {
